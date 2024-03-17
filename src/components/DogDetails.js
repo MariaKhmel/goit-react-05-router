@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 
 const DogDetails = () => {
@@ -5,10 +6,11 @@ const DogDetails = () => {
     
     const location = useLocation();
     console.log(location)
+    const locationRef = useRef(location.state?.from ?? '/dogs')
 
     return (<>
         <h1>dogId : {dogId}</h1>
-        <Link to={location.state.from}>Back to collection</Link>
+        <Link to={locationRef.current}>Back to collection</Link>
         <ul>
             <li>
                 <Link to='breeds'>Breeds</Link>

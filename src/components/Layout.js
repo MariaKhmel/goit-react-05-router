@@ -1,6 +1,10 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useSearchParams } from "react-router-dom";
 
 export const Layout = () => {
+    const [searchParams] = useSearchParams();
+    console.log(Object.fromEntries([...searchParams]))
+
+
     return (
         <>
             <nav>
@@ -8,7 +12,7 @@ export const Layout = () => {
                 <NavLink to='/dogs'>Collection</NavLink>
             </nav>
             <main>
-                <Outlet/>
+                <Outlet />
             </main>
         </>
     )
